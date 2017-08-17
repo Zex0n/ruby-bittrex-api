@@ -59,6 +59,10 @@ module Bittrex
       request("https://bittrex.com/api/#{API_VERSION}/account/getbalance", "currency=#{currency}")
     end
 
+    def balances
+      request("https://bittrex.com/api/#{API_VERSION}/account/getbalances")
+    end
+
     def order_history(market = nil, count = 5)
       params = market ? "market=#{@trade_for}#{market}&count=#{count}" : "count=#{count}"
       request("https://bittrex.com/api/#{API_VERSION}/account/getorderhistory", params)
